@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CRUD com Bootstrap 3</title>
+<title>Lista de usuários ADM</title>
 
 <link href="././resources/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -26,7 +26,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Receita do dia</a>
+				<a class="navbar-brand" href="./dashboard.html">Receita do dia</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
@@ -75,14 +75,14 @@
 				</div>
 			</div>
 
-			
+
 
 			<div class="row">
 				<div class="col-md-12">
 					<button type="submit" value="Enviar" class="btn btn-primary">Salvar</button>
 				</div>
 			</div>
-			<hr/>
+			<hr />
 		</form>
 	</div>
 
@@ -115,7 +115,12 @@
 							<th>${u.id_user}</th>
 							<th>${u.usuario}</th>
 							<th>${u.email}</th>
-							<td class="actions"><a href=usuarioServlet?acao=excluir&id_user=${u.id_user}> Excluir</a></td>
+
+							<td class="actions"><a class="btn btn-danger btn-xs"
+								href="usuarioServlet?acao=excluir&id_user=${u.id_user}"
+								data-toggle="modal" data-target="#delete-modal">Excluir</a></td>
+
+
 						</tr>
 					</c:forEach>
 

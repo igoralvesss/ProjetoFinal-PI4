@@ -41,7 +41,7 @@ public class FeedbackServlet extends HttpServlet {
 				feedbackDao.excluir(codFeedback);
 				request.setAttribute("mensagem", "Usuário excluído");
 			}
-			request.setAttribute("feedback", feedbackDao.getFeedbacks());
+			request.setAttribute("feedbacks", feedbackDao.getFeedbacks());
 		} catch (SQLException e) {
 			request.setAttribute("mensagem", "Erro de Banco de Dados: " + e.getMessage());
 		} catch (ClassNotFoundException e) {

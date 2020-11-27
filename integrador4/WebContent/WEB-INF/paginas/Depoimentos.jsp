@@ -8,7 +8,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<title>Blog</title>
+<title>Depoimentos</title>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y="
@@ -100,7 +100,7 @@ input {
 
 @media ( max-width : 980px) {
 	.login-oculto {
-		justify-content: center;
+		justify-content: center; 
 	}
 	.caixa-feed {
 		width: 300px;
@@ -201,7 +201,7 @@ input {
 					</a></li>
 
 					<li class="nav-item active mx-1"><a class="nav-link"
-						href="././depoimentos.html">Depoimentos <svg width="1em"
+						href="depoimentosUser">Depoimentos <svg width="1em"
 								height="1em" viewBox="0 0 16 16" class="bi bi-chat-square-text"
 								fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
@@ -212,7 +212,7 @@ input {
 					</a></li>
 
 					<li class="nav-item mx-1"><a class="nav-link"
-						href="././contatos.html">Contatos <svg width="1em"
+						href="feedbackUser">Contatos <svg width="1em"
 								height="1em" viewBox="0 0 16 16" class="bi bi-telephone"
 								fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
@@ -231,20 +231,19 @@ input {
 		<section class="mt-3 login"
 			style="width: 25%; height: 100%; border-radius: 10px; background-color: rgb(255, 255, 255);">
 			<div class="d-flex flex-wrap p-4">
-				<div>
-					<img src="././resources/bootstrap/img/user.png" alt="">
+				<div class="d-flex justify-content-center">
+					
 				</div>
 
-				<div class="pl-4 d-flex justify-content-center align-items-center">
-					<p class="text-dark">Usuário não logado</p>
+				<div class="pl-4 d-flex justify-content-center flex-wrap align-items-center">
+					<img class="ml-n3" src="././resources/bootstrap/img/user.png" alt="">
+					<p class="text-dark">Identidade preservada.</p>
 				</div>
 
-				<button type="button" class="btn btn-success mt-4"
-					style="width: 100%;">Logar</button>
 				<div class="mt-3">
-					<p class="text-secondary text-center" style="font-size: 13px;">
-						públicar um depoimento ou nos contribuir com algum feedback, é
-						preciso estar logado.</p>
+					<p class="text-secondary" style="font-size: 13px;">
+						Ao deixar seu depoimento, sua identidade será preservada, por conta disso, não disponibilizamos
+						nenhum tipo de cadastro. Qualquer dúvida entre em contato.</p>
 				</div>
 
 			</div>
@@ -318,22 +317,19 @@ input {
 				style="background-color: rgb(246, 248, 250);">
 
 				<div class="caixa-compartilhar">
-					<h2 class="text-dark">
-						Compartilhe seu depoimento!
-						</h2>
-						<h4>${mensagem2}</h4>
-						<h4>${mensagem}</h4>
+					<h2 class="text-dark">Compartilhe seu depoimento!</h2>
+					
 
-						<div class="my-1">
-							<button type="button" class="btn btn-success" data-toggle="modal"
-								data-target="#exampleModal">Escrever</button>
+					<div class="my-1">
+						<button type="button" class="btn btn-success" data-toggle="modal"
+							data-target="#exampleModal">Escrever</button>
 
-							<!-- Modal -->
-							<div class="modal fade" id="exampleModal" tabindex="-1"
-								aria-labelledby="exampleModalLabel" aria-hidden="true">
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
+						<!-- Modal -->
+						<div class="modal fade" id="exampleModal" tabindex="-1"
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
 										<h5 class="modal-title text-dark" id="exampleModalLabel">Depoimento</h5>
 										<button type="button" class="close" data-dismiss="modal"
 											aria-label="Close">
@@ -354,18 +350,16 @@ input {
 												data-dismiss="modal">Fechar</button>
 											<button type="submit" class="btn btn-primary">Salvar</button>
 										</div>
-									</div>
 								</div>
 							</div>
 						</div>
+					</div>
 				</div>
 
 				<div class="caixa-compartilhar-oculta">
 
 					<div class=" d-flex justify-content-center" style="width: 100%">
 						<h2 class="text-dark text-center">Compartilhe seu depoimento!</h2>
-						<h4>${mensagem2}</h4>
-						<h4>${mensagem}</h4>
 					</div>
 
 					<div class="my-3 botoes-depoimento">
@@ -392,8 +386,8 @@ input {
 												name="descricao" value="${dp.descricao}"
 												style="font-size: 14px; resize: none; background-color: rgb(252, 250, 250);"
 												rows="5"></textarea>
-												Data <input type="text" name="data" value="${dp.publicacao}" ></input>
-												</div>
+											Data <input type="text" name="data" value="${dp.publicacao}"></input>
+										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary"
 												data-dismiss="modal">Fechar</button>
@@ -409,14 +403,22 @@ input {
 			</div>
 
 			<hr>
+			
+			<h6 class="text-dark ml-3">${mensagem2}</h6>
+			<h6 class="text-dark ml-3">${mensagem}</h6>
+			<c:forEach var="d" items="${depoimentos}">
+				<div class="card m-4">
+					<div class="card-body">
 
-			<div class="card m-4">
-				<div class="card-body">
-					<c:forEach var="d" items="${depoimentos}">
-						<h5 class="card-title text-dark">Anônima</h5>
-						<h6 class="card-subtitle mb-2 text-muted">depoimento</h6>
-						<p class="card-text text-dark">${d.descricao}</p>
-					</c:forEach>
+						<div class="d-flex">
+							<img src="././resources/bootstrap/img/user.png" style="height:30px;" alt="">
+							<h5 class="card-title text-dark ml-3">Anônima</h5>
+						</div>
+						<p class="card-text text-dark mt-2">${d.descricao}</p>
+
+					</div>
+				</div>
+			</c:forEach>
 		</section>
 
 

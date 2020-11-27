@@ -25,9 +25,8 @@ public class FeedbackDao {
 	public void salvar(Feedback fb) throws SQLException, ClassNotFoundException {
 		Connection conexao = ConexaoJDBCFactory.getConexao();
 		PreparedStatement statement = conexao
-				.prepareStatement("INSERT INTO feedback(descricao,data_pub) VALUES (?,TIMESTAMP)");
+				.prepareStatement("INSERT INTO feedback(descricao,data_pub) VALUES (?,CURRENT_TIMESTAMP)");
 		statement.setString(1, fb.getDescricao());
-		statement.setString(2, fb.getData_pub());
 		statement.execute();
 
 	}
